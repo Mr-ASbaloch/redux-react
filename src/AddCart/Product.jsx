@@ -1,9 +1,15 @@
 import React from "react";
 import products from "./products.json";
+import Cart from "./Cart";
+import { useDispatch } from "react-redux";
+import { addItem } from "../redux/Slices/Slice";
 
 const Product = () => {
+  const dispatch = useDispatch ()
+  
   return (
     <>
+    <Cart/>
       <div style={{ display: "flex ", flexWrap: "wrap", gap: "5px" }}>
         {products.map( (product ) => {
           return (
@@ -18,6 +24,7 @@ const Product = () => {
               <p>price :{product.price}</p>
               <button
                 style={{ display: "block", backgroundColor: "greenyellow" }}
+                onClick={ e =>dispatch(addItem({name : product.name , price : product.price}))}
               >
                 {" "}
                 Add to cart
