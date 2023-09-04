@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 const Cart = () => {
     const items = useSelector (state => state)
  
-    const total = items.cart.reduce((a ,b)=>(a + b.price , 0 ))
+    const total = items.cart.reduce((a ,b) =>a + b.price , 0 )
   return (
     <div>
     <h1> total items :{items.cart.length} price : {total}</h1>
